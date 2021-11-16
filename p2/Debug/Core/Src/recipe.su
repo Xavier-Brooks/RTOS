@@ -1,0 +1,4 @@
+recipe.c:27:6:exec_cmd	24	static
+recipe.c:39:6:exec_recipe	32	static
+recipe.c:98:6:operation	24	static
+recipe.c:138:6:move_servo	24	static

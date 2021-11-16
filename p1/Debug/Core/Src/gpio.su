@@ -1,0 +1,2 @@
+gpio.c:4:6:gpio_init	4	static
+gpio.c:11:5:detect_edge	16	static

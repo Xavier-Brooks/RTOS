@@ -1,0 +1,30 @@
+17:38:12 **** Incremental Build of configuration Debug for project C-Exam ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'function_three':
+../Core/Src/main.c:135:56: warning: comparison between pointer and integer
+  135 |   else if((TIM2_get_count() < 2048) && (TIM2_get_count >= 1024)){
+      |                                                        ^~
+../Core/Src/main.c:137:57: warning: comparison between pointer and integer
+  137 |   }else if((TIM2_get_count() < 3072) && (TIM2_get_count >= 2048)){
+      |                                                         ^~
+../Core/Src/main.c:140:57: warning: comparison between pointer and integer
+  140 |   }else if((TIM2_get_count() < 4096) && (TIM2_get_count >= 3072)){
+      |                                                         ^~
+arm-none-eabi-gcc -o "C-Exam.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\xavier\Downloads\C-Exam\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="C-Exam.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: C-Exam.elf
+ 
+arm-none-eabi-size   C-Exam.elf 
+arm-none-eabi-objdump -h -S  C-Exam.elf  > "C-Exam.list"
+arm-none-eabi-objcopy  -O binary  C-Exam.elf  "C-Exam.bin"
+   text	   data	    bss	    dec	    hex	filename
+   2256	    104	   1568	   3928	    f58	C-Exam.elf
+Finished building: default.size.stdout
+ 
+Finished building: C-Exam.bin
+ 
+Finished building: C-Exam.list
+ 
+
+17:38:12 Build Finished. 0 errors, 3 warnings. (took 744ms)
+

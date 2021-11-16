@@ -1,0 +1,27 @@
+#include "cmd.h"
+
+void hardware_init(void);
+void startup(void);
+
+int main(void)
+{
+
+  hardware_init();
+  startup();
+
+  while(1){
+	  continue;
+  }
+}
+
+void hardware_init(void){
+	usart2_init();
+	timer_init();
+}
+
+void startup(void){
+	usart2_putc(0x0C);
+	usart2_put("P(p): pause recipe execution, C(c): continue recipe execution\r\n");
+	usart2_put("B(b): (Re)start recipe execution, N(n): continue no operation\r\n");
+	usart2_put("L(l): Left one position if possible, R(r): right one position if possible\r\n>");
+}

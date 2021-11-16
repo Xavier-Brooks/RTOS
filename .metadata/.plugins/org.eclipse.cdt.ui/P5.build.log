@@ -1,0 +1,184 @@
+14:39:36 **** Incremental Build of configuration Debug for project P5 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32l4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32l4xx_hal_msp.d" -MT"Core/Src/stm32l4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32l4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32l4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32l4xx_it.d" -MT"Core/Src/stm32l4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32l4xx_it.o"
+arm-none-eabi-gcc "../Core/Src/usart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/usart.d" -MT"Core/Src/usart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/usart.o"
+../Core/Src/stm32l4xx_hal_msp.c: In function 'get_cmd':
+../Core/Src/stm32l4xx_hal_msp.c:153:1: error: expected declaration or statement at end of input
+  153 | }
+      | ^
+../Core/Src/usart.c: In function 'get_cmd':
+../Core/Src/usart.c:23:1: error: expected declaration or statement at end of input
+   23 | }
+      | ^
+../Core/Src/stm32l4xx_hal_msp.c:160: warning: control reaches end of non-void function [-Wreturn-type]
+At top level:
+../Core/Src/stm32l4xx_hal_msp.c:132:6: warning: 'HAL_UART_MspDeInit' defined but not used [-Wunused-function]
+  132 | void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/stm32l4xx_hal_msp.c:86:6: warning: 'HAL_UART_MspInit' defined but not used [-Wunused-function]
+   86 | void HAL_UART_MspInit(UART_HandleTypeDef* huart)
+      |      ^~~~~~~~~~~~~~~~
+../Core/Src/stm32l4xx_it.c: In function 'get_cmd':
+../Core/Src/stm32l4xx_hal_msp.c:64:6: warning: 'HAL_MspInit' defined but not used [-Wunused-function]
+   64 | void HAL_MspInit(void)
+      |      ^~~~~~~~~~~
+../Core/Src/stm32l4xx_it.c:70:6: error: static declaration of 'NMI_Handler' follows non-static declaration
+   70 | void NMI_Handler(void)
+      |      ^~~~~~~~~~~
+../Core/Src/usart.c:24: warning: control reaches end of non-void function [-Wreturn-type]
+In file included from ../Core/Src/stm32l4xx_it.c:23:
+../Core/Inc/stm32l4xx_it.h:50:6: note: previous declaration of 'NMI_Handler' was here
+   50 | void NMI_Handler(void);
+      |      ^~~~~~~~~~~
+At top level:
+../Core/Src/usart.c:11:6: warning: 'USART_Write' defined but not used [-Wunused-function]
+   11 | void USART_Write(USART_TypeDef * USARTx, uint8_t *buffer, uint32_t nBytes) {
+      |      ^~~~~~~~~~~
+../Core/Src/usart.c:3:9: warning: 'USART_Read' defined but not used [-Wunused-function]
+    3 | uint8_t USART_Read (USART_TypeDef * USARTx) {
+      |         ^~~~~~~~~~
+../Core/Src/stm32l4xx_it.c:85:6: error: static declaration of 'HardFault_Handler' follows non-static declaration
+   85 | void HardFault_Handler(void)
+      |      ^~~~~~~~~~~~~~~~~
+In file included from ../Core/Src/stm32l4xx_it.c:23:
+../Core/Inc/stm32l4xx_it.h:51:6: note: previous declaration of 'HardFault_Handler' was here
+   51 | void HardFault_Handler(void);
+      |      ^~~~~~~~~~~~~~~~~
+../Core/Src/stm32l4xx_it.c:100:6: error: static declaration of 'MemManage_Handler' follows non-static declaration
+  100 | void MemManage_Handler(void)
+      |      ^~~~~~~~~~~~~~~~~
+In file included from ../Core/Src/stm32l4xx_it.c:23:
+../Core/Inc/stm32l4xx_it.h:52:6: note: previous declaration of 'MemManage_Handler' was here
+   52 | void MemManage_Handler(void);
+      |      ^~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/stm32l4xx_hal_msp.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/stm32l4xx_it.c:115:6: error: static declaration of 'BusFault_Handler' follows non-static declaration
+  115 | void BusFault_Handler(void)
+      |      ^~~~~~~~~~~~~~~~
+In file included from ../Core/Src/stm32l4xx_it.c:23:
+../Core/Inc/stm32l4xx_it.h:53:6: note: previous declaration of 'BusFault_Handler' was here
+   53 | void BusFault_Handler(void);
+      |      ^~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/usart.o] Error 1
+../Core/Src/stm32l4xx_it.c:130:6: error: static declaration of 'UsageFault_Handler' follows non-static declaration
+  130 | void UsageFault_Handler(void)
+      |      ^~~~~~~~~~~~~~~~~~
+In file included from ../Core/Src/stm32l4xx_it.c:23:
+../Core/Inc/stm32l4xx_it.h:54:6: note: previous declaration of 'UsageFault_Handler' was here
+   54 | void UsageFault_Handler(void);
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/stm32l4xx_it.c:145:6: error: static declaration of 'SVC_Handler' follows non-static declaration
+  145 | void SVC_Handler(void)
+      |      ^~~~~~~~~~~
+In file included from ../Core/Src/stm32l4xx_it.c:23:
+../Core/Inc/stm32l4xx_it.h:55:6: note: previous declaration of 'SVC_Handler' was here
+   55 | void SVC_Handler(void);
+      |      ^~~~~~~~~~~
+../Core/Src/stm32l4xx_it.c:158:6: error: static declaration of 'DebugMon_Handler' follows non-static declaration
+  158 | void DebugMon_Handler(void)
+      |      ^~~~~~~~~~~~~~~~
+In file included from ../Core/Src/stm32l4xx_it.c:23:
+../Core/Inc/stm32l4xx_it.h:56:6: note: previous declaration of 'DebugMon_Handler' was here
+   56 | void DebugMon_Handler(void);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Src/stm32l4xx_it.c:171:6: error: static declaration of 'PendSV_Handler' follows non-static declaration
+  171 | void PendSV_Handler(void)
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'startup':
+In file included from ../Core/Src/stm32l4xx_it.c:23:
+../Core/Inc/stm32l4xx_it.h:57:6: note: previous declaration of 'PendSV_Handler' was here
+   57 | void PendSV_Handler(void);
+      |      ^~~~~~~~~~~~~~
+../Core/Src/stm32l4xx_it.c:184:6: error: static declaration of 'SysTick_Handler' follows non-static declaration
+  184 | void SysTick_Handler(void)
+      |      ^~~~~~~~~~~~~~~
+In file included from ../Core/Src/stm32l4xx_it.c:23:
+../Core/Inc/stm32l4xx_it.h:58:6: note: previous declaration of 'SysTick_Handler' was here
+   58 | void SysTick_Handler(void);
+      |      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:68:2: warning: implicit declaration of function 'usart2_init' [-Wimplicit-function-declaration]
+   68 |  usart2_init();
+      |  ^~~~~~~~~~~
+../Core/Src/stm32l4xx_it.c:193:1: error: expected declaration or statement at end of input
+  193 | }
+      | ^
+../Core/Src/stm32l4xx_it.c:206: warning: control reaches end of non-void function [-Wreturn-type]
+At top level:
+../Core/Src/stm32l4xx_it.c:184:6: warning: 'SysTick_Handler' defined but not used [-Wunused-function]
+  184 | void SysTick_Handler(void)
+      |      ^~~~~~~~~~~~~~~
+../Core/Src/stm32l4xx_it.c:171:6: warning: 'PendSV_Handler' defined but not used [-Wunused-function]
+  171 | void PendSV_Handler(void)
+      |      ^~~~~~~~~~~~~~
+../Core/Src/stm32l4xx_it.c:158:6: warning: 'DebugMon_Handler' defined but not used [-Wunused-function]
+  158 | void DebugMon_Handler(void)
+      |      ^~~~~~~~~~~~~~~~
+../Core/Src/stm32l4xx_it.c:145:6: warning: 'SVC_Handler' defined but not used [-Wunused-function]
+  145 | void SVC_Handler(void)
+      |      ^~~~~~~~~~~
+../Core/Src/stm32l4xx_it.c:130:6: warning: 'UsageFault_Handler' defined but not used [-Wunused-function]
+  130 | void UsageFault_Handler(void)
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:71:2: warning: implicit declaration of function 'usart2_put' [-Wimplicit-function-declaration]
+   71 |  usart2_put(msg);
+      |  ^~~~~~~~~~
+../Core/Src/stm32l4xx_it.c:115:6: warning: 'BusFault_Handler' defined but not used [-Wunused-function]
+  115 | void BusFault_Handler(void)
+      |      ^~~~~~~~~~~~~~~~
+../Core/Src/stm32l4xx_it.c:100:6: warning: 'MemManage_Handler' defined but not used [-Wunused-function]
+  100 | void MemManage_Handler(void)
+      |      ^~~~~~~~~~~~~~~~~
+../Core/Src/stm32l4xx_it.c:85:6: warning: 'HardFault_Handler' defined but not used [-Wunused-function]
+   85 | void HardFault_Handler(void)
+      |      ^~~~~~~~~~~~~~~~~
+../Core/Src/stm32l4xx_it.c:70:6: warning: 'NMI_Handler' defined but not used [-Wunused-function]
+   70 | void NMI_Handler(void)
+      |      ^~~~~~~~~~~
+../Core/Src/main.c: In function 'get_cmd':
+../Core/Src/main.c:105:5: warning: 'main' is normally a non-static function [-Wmain]
+  105 | int main(void)
+      |     ^~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:139:25: error: expected expression before ')' token
+  139 |  memset(settings, '\0', );
+      |                         ^
+../Core/Src/main.c: In function 'get_cmd':
+../Core/Src/main.c:151:6: error: static declaration of 'SystemClock_Config' follows non-static declaration
+  151 | void SystemClock_Config(void)
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:55:6: note: previous declaration of 'SystemClock_Config' was here
+   55 | void SystemClock_Config(void);
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:203:6: error: static declaration of 'Error_Handler' follows non-static declaration
+  203 | void Error_Handler(void)
+      |      ^~~~~~~~~~~~~
+In file included from ../Core/Src/main.c:22:
+../Core/Inc/main.h:59:6: note: previous declaration of 'Error_Handler' was here
+   59 | void Error_Handler(void);
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:212:1: error: expected declaration or statement at end of input
+  212 | }
+      | ^
+../Core/Src/main.c:232: warning: control reaches end of non-void function [-Wreturn-type]
+At top level:
+../Core/Src/main.c:203:6: warning: 'Error_Handler' defined but not used [-Wunused-function]
+  203 | void Error_Handler(void)
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:151:6: warning: 'SystemClock_Config' defined but not used [-Wunused-function]
+  151 | void SystemClock_Config(void)
+      |      ^~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/stm32l4xx_it.o] Error 1
+../Core/Src/main.c:105:5: warning: 'main' defined but not used [-Wunused-function]
+  105 | int main(void)
+      |     ^~~~
+../Core/Src/main.c:78:5: warning: 'check_input' defined but not used [-Wunused-function]
+   78 | int check_input(){
+      |     ^~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+
+14:39:37 Build Failed. 21 errors, 25 warnings. (took 1s.204ms)
+

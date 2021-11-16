@@ -1,0 +1,2 @@
+cmd.c:8:6:get_cmd	16	static
+cmd.c:42:5:verify_cmd	24	static

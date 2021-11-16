@@ -1,0 +1,5 @@
+usart.c:3:6:usart2_init	4	static
+usart.c:57:6:usart2_putc	16	static
+usart.c:63:6:usart2_put	16	static
+usart.c:72:6:usart2_getc	4	static
+usart.c:80:6:wait	16	static

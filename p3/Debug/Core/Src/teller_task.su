@@ -1,0 +1,6 @@
+teller_task.c:20:5:teller_task_init	40	static
+teller_task.c:32:5:customer_queue_init	24	static
+teller_task.c:42:13:teller_task	32	static
+teller_task.c:63:13:customer_task	32	static
+teller_task.c:75:5:help_customer	16	static
+teller_task.c:84:6:mutex_sprintf	56	static

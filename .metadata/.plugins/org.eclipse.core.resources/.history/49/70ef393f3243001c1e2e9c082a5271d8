@@ -1,0 +1,16 @@
+#include "stdio.h"
+#include "stdint.h"
+
+//function prototypes
+void populate_array(void);
+void write_dac(int idx);
+void read_adc(int idx, int value);
+
+//defines
+#define BUFFER_SIZE 8190
+
+//variables
+uint16_t buffer[BUFFER_SIZE];
+uint16_t buffer2[BUFFER_SIZE] = {0};
+uint16_t* swap_buffer = buffer;
+uint16_t* swap_buffer2 = buffer2;

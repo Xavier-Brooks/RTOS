@@ -1,0 +1,17 @@
+1632189785225	Delete resource 'UART'
+1632189790126	Delete resource 'Project 1'
+1632189937050	Delete resource 'C-Exam'
+1632190355851	Delete resource 'p1/p1.ioc'
+1632190420696	Delete resource 'p1/Core/Src/stm32l4xx_it.c'
+1632190499245	Delete resource 'p1/Core/Inc/stm32l4xx_hal_conf.h'
+1632190505891	Delete resource 'p1/Core/Inc/stm32l4xx_it.h'
+1632190522549	Delete 3 resources
+1632190535394	Delete resource 'p1/Drivers/STM32L4xx_HAL_Driver'
+1632190915898	Delete resource 'p1/Core/Src/gpio.c'
+1632191349012	Delete resource 'p1'
+1632191449266	Delete 4 resources
+1632191454611	Delete resource 'p1/Core/Inc/stm32l4xx_hal_conf.h'
+1632191458306	Delete resource 'p1/Core/Inc/stm32l4xx_it.h'
+1632191463346	Delete resource 'p1/Drivers/STM32L4xx_HAL_Driver'
+1632191483465	Delete resource 'p1/Core/Src/main.c'
+1632191487560	Delete resource 'p1/Core/Inc/main.h'

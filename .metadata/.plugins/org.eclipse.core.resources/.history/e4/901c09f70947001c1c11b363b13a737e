@@ -1,0 +1,7 @@
+
+//defines
+
+
+//function prototypes
+int get_cmd(void);
+void startup(void);
