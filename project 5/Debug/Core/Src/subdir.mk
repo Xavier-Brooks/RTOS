@@ -12,7 +12,8 @@ C_SRCS += \
 ../Core/Src/syscalls.c \
 ../Core/Src/sysmem.c \
 ../Core/Src/system_stm32l4xx.c \
-../Core/Src/usart.c 
+../Core/Src/usart.c \
+../Core/Src/waveform.c 
 
 OBJS += \
 ./Core/Src/console.o \
@@ -22,7 +23,8 @@ OBJS += \
 ./Core/Src/syscalls.o \
 ./Core/Src/sysmem.o \
 ./Core/Src/system_stm32l4xx.o \
-./Core/Src/usart.o 
+./Core/Src/usart.o \
+./Core/Src/waveform.o 
 
 C_DEPS += \
 ./Core/Src/console.d \
@@ -32,7 +34,8 @@ C_DEPS += \
 ./Core/Src/syscalls.d \
 ./Core/Src/sysmem.d \
 ./Core/Src/system_stm32l4xx.d \
-./Core/Src/usart.d 
+./Core/Src/usart.d \
+./Core/Src/waveform.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

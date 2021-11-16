@@ -38,6 +38,7 @@ extern "C" {
 #include "string.h"
 #include "console.h"
 #include "usart.h"
+#include "waveform.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

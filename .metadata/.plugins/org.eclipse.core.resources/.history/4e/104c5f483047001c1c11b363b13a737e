@@ -1,0 +1,4 @@
+#define WAVE_BUFFER_SIZE 8190
+
+int sample(double min, double max, int* dacmn, int* dacmx);
+

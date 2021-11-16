@@ -1,0 +1,2 @@
+waveform.c:3:5:sample	32	static
+waveform.c:9:6:update_timer	8	static

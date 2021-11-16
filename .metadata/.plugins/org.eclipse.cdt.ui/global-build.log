@@ -1,17 +1,6 @@
-16:38:45 **** Incremental Build of configuration Debug for project project 5 ****
+17:59:23 **** Incremental Build of configuration Debug for project project 5 ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:127:32: warning: pointer targets in passing argument 2 of 'USART_Write' differ in signedness [-Wpointer-sign]
-  127 |   USART_Write(huart2.Instance, "Hi!\r\n", strlen("Hi!\r\n"));
-      |                                ^~~~~~~~~
-      |                                |
-      |                                char *
-In file included from ../Core/Inc/main.h:40,
-                 from ../Core/Src/main.c:21:
-../Core/Inc/usart.h:7:51: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
-    7 | void USART_Write(USART_TypeDef * USARTx, uint8_t *buffer, uint32_t nBytes);
-      |                                          ~~~~~~~~~^~~~~~
+arm-none-eabi-gcc "../Core/Src/waveform.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/waveform.d" -MT"Core/Src/waveform.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/waveform.o"
 arm-none-eabi-gcc -o "project 5.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\xavier\Documents\RTOS\project 5\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="project 5.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: project 5.elf
  
@@ -19,7 +8,7 @@ arm-none-eabi-size   project\ 5.elf
 arm-none-eabi-objdump -h -S  project\ 5.elf  > "project 5.list"
 arm-none-eabi-objcopy  -O binary  project\ 5.elf  "project 5.bin"
    text	   data	    bss	    dec	    hex	filename
-  29036	    488	   1776	  31300	   7a44	project 5.elf
+  32996	    488	  18328	  51812	   ca64	project 5.elf
 Finished building: default.size.stdout
  
 Finished building: project 5.bin
