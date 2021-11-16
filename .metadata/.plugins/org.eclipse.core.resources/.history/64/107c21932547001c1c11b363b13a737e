@@ -126,8 +126,6 @@ int main(void)
 	if(check_input()){
 		USART_Write(huart2.Instance, "Hi!\r\n", strlen("Hi!\r\n"));
 	}
-
-
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

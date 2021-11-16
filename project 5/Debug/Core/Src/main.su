@@ -1,10 +1,6 @@
-main.c:66:6:startup	24	static
-main.c:76:5:get_cmd	16	static
-main.c:93:6:parse	16	static
-main.c:103:6:assign	16	static
-main.c:123:5:check_input	16	static
-main.c:147:5:main	8	static
-main.c:195:6:SystemClock_Config	96	static
-main.c:244:13:MX_USART2_UART_Init	8	static
-main.c:279:13:MX_GPIO_Init	16	static
-main.c:295:6:Error_Handler	4	static,ignoring_inline_asm
+main.c:66:5:check_input	16	static
+main.c:89:5:main	144	static
+main.c:142:6:SystemClock_Config	96	static
+main.c:191:13:MX_USART2_UART_Init	8	static
+main.c:226:13:MX_GPIO_Init	16	static
+main.c:242:6:Error_Handler	4	static,ignoring_inline_asm

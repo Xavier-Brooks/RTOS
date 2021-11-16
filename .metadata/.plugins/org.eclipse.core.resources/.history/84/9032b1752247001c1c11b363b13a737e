@@ -46,7 +46,7 @@ UART_HandleTypeDef huart2;
 char type;
 int frequency;
 double min, max;
-char settings[BUFFER_SETTING_SIZE];
+char settings[20];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -59,6 +59,63 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+/*
+ * Simple function that prints a guide to Putty upon startup
+ * RET: nothing
+ * */
+void startup(){
+	char *msg = "Welcome: Type freq min max\r\nType - type of wave S(sine) T(triangle) R(Rectangle)\r\n";
+	char *msg2 = "freq - frequency of the wave (10Hz - 100kHz)\r\nmin - minimum voltage allowed(0V limit)\r\nmax - maximum voltage allowed(3.3V limit)\r\nMax Must Be Greater Than Min\r\n";
+	USART_Write(huart2.Instance, (uint8_t *)msg, strlen(msg));
+	USART_Write(huart2.Instance, (uint8_t *)msg2, strlen(msg2));
+}
+
+/*
+ * Gets a command from the user, non blocking
+ * */
+int get_cmd(){
+	//static string that will retain it's value until user presses enter
+	USART_Write(huart2.Instance, "Wave Settings: ", strlen("Wave Settings: "));
+	//enters while loop as user types
+	while(1){
+		char ch = USART_Read(huart2.Instance); //gets characters from user
+		if(ch == '\r' || ch == '\n'){
+				USART_Write(huart2.Instance, (uint8_t *)"\r\n", strlen("\r\n"));
+				parse();
+				memset(settings, '\0', 20);
+				return check_input();
+		}
+		USART_Write(huart2.Instance, &ch, 1); //prints character
+		strncat(settings, &ch, 1); //adds the last pressed key to the instruction sring
+	}
+}
+
+void parse(){
+	char* tok = strtok(settings, " ");
+	type = (char)(*tok);
+	for(int i = 0; i <= 2; i++){
+		tok = strtok(NULL, " "); //pull the next parameter
+		assign(tok, i);
+	}
+	return;
+}
+
+void assign(char* str, int c){
+	switch (c){
+		case 0:
+			frequency = atoi(str);
+			break;
+		case 1:
+			min = (double)atof(str);
+			break;
+		case 2:
+			max = (double)atof(str);
+			break;
+		default:
+			return;
+	}
+	return;
+}
 
 /*
  * Verifies the user requested an acceptable signal
@@ -79,6 +136,7 @@ int check_input(){
 	}
 	return flag;
 }
+
 
 /* USER CODE END 0 */
 
@@ -111,22 +169,18 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART2_UART_Init();
-
   /* USER CODE BEGIN 2 */
-  startup(huart2);
+  startup();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-
   while (1)
   {
-	get_cmd(huart2, settings, BUFFER_SETTING_SIZE);
-	parse(settings, &type, &frequency, &min, &max); //parses the user input and extracts the type, freq., and min/max of the wave
-	if(check_input()){
-		USART_Write(huart2.Instance, "Hi!\r\n", strlen("Hi!\r\n"));
-	}
-
+	 while(!get_cmd()){
+		 continue;
+	 }
+	 USART_Write(huart2.Instance, "Hi!\r\n", strlen("Hi!\r\n"));
 
     /* USER CODE END WHILE */
 

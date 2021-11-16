@@ -122,12 +122,10 @@ int main(void)
   while (1)
   {
 	get_cmd(huart2, settings, BUFFER_SETTING_SIZE);
-	parse(settings, &type, &frequency, &min, &max); //parses the user input and extracts the type, freq., and min/max of the wave
+	parse(settings, type, frequency, min, max); //parses the user input and extracts the type, freq., and min/max of the wave
 	if(check_input()){
 		USART_Write(huart2.Instance, "Hi!\r\n", strlen("Hi!\r\n"));
 	}
-
-
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
