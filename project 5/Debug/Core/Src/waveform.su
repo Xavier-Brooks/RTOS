@@ -1,2 +1,5 @@
-waveform.c:3:5:sample	32	static
-waveform.c:9:6:update_timer	8	static
+waveform.c:3:6:sample	40	static
+waveform.c:10:6:update_timer	32	static
+waveform.c:21:6:update_data	16	static
+waveform.c:42:6:populate_triangle_wave	40	static
+waveform.c:54:6:populate_rectangle_wave	40	static

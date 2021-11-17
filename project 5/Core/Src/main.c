@@ -126,8 +126,8 @@ int main(void)
   MX_DAC1_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-  //startup(huart2);
-  HAL_DAC_Start_DMA();
+  startup(huart2);
+  //HAL_DAC_Start_DMA(&dac, DAC_CHANNEL_1, dac_buffer, samples, DAC_ALIGN_12B_R);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -135,15 +135,15 @@ int main(void)
 
   while (1)
   {
-//	get_cmd(huart2, settings, BUFFER_SETTING_SIZE); //get the settings from the user
-//	parse(settings, &type, &frequency, &min, &max); //parses the user input and extracts the type, freq., and min/max of the wave
-//	if(!check_input()){ //checks for valid input
-//		USART_Write(huart2.Instance, (uint8_t *) "Invalid Input\r\n", strlen("Invalid Input\r\n"));
-//		continue;
-//	}
-	//samples = sample(min, max, &DAC_MIN, &DAC_MAX); //calculates the number of samples and the min/max values for the dac to produce the proper min/max voltages
-	//update_timer(htim2, frequency, samples);
-	//update_data(dac_buffer, type, samples, DAC_MIN, DAC_MAX);
+	get_cmd(huart2, settings, BUFFER_SETTING_SIZE); //get the settings from the user
+	parse(settings, &type, &frequency, &min, &max); //parses the user input and extracts the type, freq., and min/max of the wave
+	if(!check_input()){ //checks for valid input
+		USART_Write(huart2.Instance, (uint8_t *) "Invalid Input\r\n", strlen("Invalid Input\r\n"));
+		continue;
+	}
+	sample(min, max, &DAC_MIN, &DAC_MAX, &samples); //calculates the number of samples and the min/max values for the dac to produce the proper min/max voltages
+	update_timer(&htim2, &hdac1, frequency, samples);
+	update_data(htim2, hdac1, dac_buffer, type, samples, DAC_MIN, DAC_MAX);
 
     /* USER CODE END WHILE */
 
