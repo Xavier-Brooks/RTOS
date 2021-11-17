@@ -18,7 +18,7 @@ void update_timer(TIM_HandleTypeDef* timer, DAC_HandleTypeDef* dac, int freq, in
 	return;
 }
 
-void update_data(TIM_HandleTypeDef timer, DAC_HandleTypeDef dac, uint16_t buffer, char form, int samples, int min, int max){
+void update_data(TIM_HandleTypeDef* timer, DAC_HandleTypeDef* dac, uint16_t* buffer, char form, int samples, int min, int max){
 	switch (form){
 	case 't':
 	case 'T':
@@ -34,20 +34,19 @@ void update_data(TIM_HandleTypeDef timer, DAC_HandleTypeDef dac, uint16_t buffer
 	default:
 		break;
 	}
-	HAL_DAC_Start_DMA(&dac, DAC_CHANNEL_1, buffer, samples, DAC_ALIGN_12B_R);
-	HAL_TIM_Base_Start(&timer);
+	HAL_DAC_Start_DMA(dac, DAC_CHANNEL_1, buffer, samples, DAC_ALIGN_12B_R);
+	HAL_TIM_Base_Start(timer);
 	return;
 }
 
 void populate_triangle_wave(uint16_t* buffer, int samples, int min, int max){
 	int idx = (samples/2);
-	int temp = max;
 	for(int i = 0; i < idx; i++){
 		buffer[i] = min + i;
 	}
 	for(int j = idx; j < samples; j++){
-		buffer[j] = temp;
-		temp--;
+		buffer[j] = max;
+		max--;
 	}
 }
 

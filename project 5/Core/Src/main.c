@@ -143,7 +143,7 @@ int main(void)
 	}
 	sample(min, max, &DAC_MIN, &DAC_MAX, &samples); //calculates the number of samples and the min/max values for the dac to produce the proper min/max voltages
 	update_timer(&htim2, &hdac1, frequency, samples);
-	update_data(htim2, hdac1, dac_buffer, type, samples, DAC_MIN, DAC_MAX);
+	update_data(&htim2, &hdac1, dac_buffer, type, samples, DAC_MIN, DAC_MAX);
 
     /* USER CODE END WHILE */
 
