@@ -1,0 +1,6 @@
+waveform.c:3:6:dc2analog	32	static
+waveform.c:9:6:update_timer	32	static
+waveform.c:20:6:update_data	24	static
+waveform.c:40:6:populate_triangle_wave	56	static
+waveform.c:52:6:populate_rectangle_wave	40	static
+waveform.c:62:6:populate_sine_wave	48	static

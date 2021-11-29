@@ -11,14 +11,14 @@ void update_timer(TIM_HandleTypeDef* timer, DAC_HandleTypeDef* dac, int freq, in
 	//stops the timer and dac until we are finished updating
 	HAL_DAC_Stop_DMA(dac, DAC_CHANNEL_1);
 	HAL_TIM_Base_Stop(timer);
-	int x = (int) (SCC/(freq * sample));
+	int x = (int) (SCC/(freq * (sample/2)));
 	x = sqrt(x) - 1;
 	(timer->Init).Period = x;
 	(timer->Init).Prescaler = x;
 	return;
 }
 
-void update_data(TIM_HandleTypeDef* timer, DAC_HandleTypeDef* dac, uint16_t* buffer, char form, int samples, int min, int max){
+void update_data(uint32_t* buffer, char form, int samples, int min, int max){
 	switch (form){
 	case 't':
 	case 'T':
@@ -34,12 +34,10 @@ void update_data(TIM_HandleTypeDef* timer, DAC_HandleTypeDef* dac, uint16_t* buf
 	default:
 		break;
 	}
-	HAL_DAC_Start_DMA(dac, DAC_CHANNEL_1, buffer, samples, DAC_ALIGN_12B_R);
-	HAL_TIM_Base_Start(timer);
 	return;
 }
 
-void populate_triangle_wave(uint16_t* buffer, int samples, int min, int max){
+void populate_triangle_wave(uint32_t* buffer, int samples, int min, int max){
 	int idx = (samples/2);
 	for(int i = 0; i < idx; i++){
 		buffer[i] = min + i;
@@ -50,7 +48,7 @@ void populate_triangle_wave(uint16_t* buffer, int samples, int min, int max){
 	}
 }
 
-void populate_rectangle_wave(uint16_t* buffer, int samples, int min, int max){
+void populate_rectangle_wave(uint32_t* buffer, int samples, int min, int max){
 	int idx = (samples/2);
 	for(int i = 0; i < idx; i++){
 		buffer[i] = max;

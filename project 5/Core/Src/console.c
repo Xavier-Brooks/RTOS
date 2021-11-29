@@ -23,7 +23,7 @@ void startup(UART_HandleTypeDef uart){
  * */
 void get_cmd(UART_HandleTypeDef uart, char* buffer, int size){
 	//prints a prompt for the user to type the wave settings
-	USART_Write(uart.Instance, "Wave Settings: ", strlen("Wave Settings: "));
+	USART_Write(uart.Instance, (uint8_t *)"Wave Settings: ", strlen("Wave Settings: "));
 	//enters while loop as user types
 	while(1){
 		char ch = USART_Read(uart.Instance); //gets characters from user
@@ -31,7 +31,7 @@ void get_cmd(UART_HandleTypeDef uart, char* buffer, int size){
 				USART_Write(uart.Instance, (uint8_t *)"\r\n", strlen("\r\n"));
 				return;
 		}
-		USART_Write(uart.Instance, &ch, 1); //prints character as user types
+		USART_Write(uart.Instance, (uint8_t *)&ch, 1); //prints character as user types
 		strncat(buffer, &ch, 1); //adds the last pressed key to the instruction string
 	}
 }
@@ -43,7 +43,7 @@ void parse(char* str, char* types, int* frequency, double* minimum, double* maxi
 		tok = strtok(NULL, " "); //pull the next parameter
 		assign(tok, i, frequency, minimum, maximum);
 	}
-	memset(str, '\0', sizeof(str)); //clears the buffer for the next waveform settings
+	memset(str, '\0', BUFFER_SETTING_SIZE); //clears the buffer for the next waveform settings
 	return;
 }
 

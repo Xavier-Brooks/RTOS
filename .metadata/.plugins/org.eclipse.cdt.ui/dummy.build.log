@@ -1,0 +1,10 @@
+13:32:08 **** Incremental Build of configuration Debug for project dummy ****
+make -j8 all 
+arm-none-eabi-size   dummy.elf 
+   text	   data	    bss	    dec	    hex	filename
+  40700	    492	   2376	  43568	   aa30	dummy.elf
+Finished building: default.size.stdout
+ 
+
+13:32:09 Build Finished. 0 errors, 0 warnings. (took 500ms)
+

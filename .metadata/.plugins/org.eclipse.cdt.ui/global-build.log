@@ -1,28 +1,24 @@
-08:34:33 **** Incremental Build of configuration Debug for project project 5 ****
+13:31:59 **** Incremental Build of configuration Debug for project dummy ****
 make -j8 all 
-arm-none-eabi-size   project\ 5.elf 
+arm-none-eabi-gcc "../Core/Src/waveform.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/waveform.d" -MT"Core/Src/waveform.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/waveform.o"
+arm-none-eabi-gcc -o "dummy.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\xavier\Documents\RTOS\dummy\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="dummy.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: dummy.elf
+ 
+arm-none-eabi-size   dummy.elf 
+arm-none-eabi-objdump -h -S  dummy.elf  > "dummy.list"
+arm-none-eabi-objcopy  -O binary  dummy.elf  "dummy.bin"
    text	   data	    bss	    dec	    hex	filename
-  35652	    492	  18328	  54472	   d4c8	project 5.elf
+  40700	    492	   2376	  43568	   aa30	dummy.elf
 Finished building: default.size.stdout
  
-08:34:40 **** Incremental Build of configuration Debug for project project 5 ****
-make -j8 all 
-arm-none-eabi-size   project\ 5.elf 
-   text	   data	    bss	    dec	    hex	filename
-  35652	    492	  18328	  54472	   d4c8	project 5.elf
-Finished building: default.size.stdout
+Finished building: dummy.bin
  
-08:35:37 **** Incremental Build of configuration Debug for project project 5 ****
-make -j8 all 
-arm-none-eabi-size   project\ 5.elf 
-   text	   data	    bss	    dec	    hex	filename
-  35652	    492	  18328	  54472	   d4c8	project 5.elf
-Finished building: default.size.stdout
+Finished building: dummy.list
  
-08:43:12 **** Incremental Build of configuration Debug for project project 5 ****
+13:32:08 **** Incremental Build of configuration Debug for project dummy ****
 make -j8 all 
-arm-none-eabi-size   project\ 5.elf 
+arm-none-eabi-size   dummy.elf 
    text	   data	    bss	    dec	    hex	filename
-  35652	    492	  18328	  54472	   d4c8	project 5.elf
+  40700	    492	   2376	  43568	   aa30	dummy.elf
 Finished building: default.size.stdout
  

@@ -51,8 +51,8 @@ UART_HandleTypeDef huart2;
 char type;
 int frequency;
 double min, max;
-uint16_t dac_buffer[WAVE_BUFFER_SIZE];
-char settings[BUFFER_SETTING_SIZE];
+uint32_t dac_buffer[WAVE_BUFFER_SIZE] = {0};
+char settings[BUFFER_SETTING_SIZE] = {0};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -127,14 +127,13 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   startup(huart2);
-  //HAL_DAC_Start_DMA(&dac, DAC_CHANNEL_1, dac_buffer, samples, DAC_ALIGN_12B_R);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-
   while (1)
   {
+
 	get_cmd(huart2, settings, BUFFER_SETTING_SIZE); //get the settings from the user
 	parse(settings, &type, &frequency, &min, &max); //parses the user input and extracts the type, freq., and min/max of the wave
 	if(!check_input()){ //checks for valid input
@@ -143,8 +142,9 @@ int main(void)
 	}
 	sample(min, max, &DAC_MIN, &DAC_MAX, &samples); //calculates the number of samples and the min/max values for the dac to produce the proper min/max voltages
 	update_timer(&htim2, &hdac1, frequency, samples);
-	update_data(&htim2, &hdac1, dac_buffer, type, samples, DAC_MIN, DAC_MAX);
-
+	update_data(dac_buffer, type, samples, DAC_MIN, DAC_MAX);
+	HAL_DAC_Start_DMA(&hdac1, DAC_CHANNEL_1, dac_buffer, samples, DAC_ALIGN_12B_R);
+	HAL_TIM_Base_Start(&htim2);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
