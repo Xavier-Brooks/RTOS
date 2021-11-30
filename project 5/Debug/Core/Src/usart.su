@@ -1,2 +1,0 @@
-usart.c:3:9:USART_Read	16	static
-usart.c:11:6:USART_Write	32	static

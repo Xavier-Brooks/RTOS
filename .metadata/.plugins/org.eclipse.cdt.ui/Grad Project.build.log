@@ -1,10 +1,10 @@
-13:34:07 **** Incremental Build of configuration Debug for project Grad Project ****
+19:45:56 **** Incremental Build of configuration Debug for project Grad Project ****
 make -j8 all 
 arm-none-eabi-size   Grad\ Project.elf 
    text	   data	    bss	    dec	    hex	filename
-   8844	     20	   1644	  10508	   290c	Grad Project.elf
+  13732	     20	   1780	  15532	   3cac	Grad Project.elf
 Finished building: default.size.stdout
  
 
-13:34:08 Build Finished. 0 errors, 0 warnings. (took 523ms)
+19:45:57 Build Finished. 0 errors, 0 warnings. (took 583ms)
 

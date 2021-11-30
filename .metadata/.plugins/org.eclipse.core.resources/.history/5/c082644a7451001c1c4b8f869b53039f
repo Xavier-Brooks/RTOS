@@ -1,0 +1,7 @@
+#include "main.h"
+
+//pulses the in to initiate a reading
+void pulse(GPIO_TypeDef* gpio){
+	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_0);
+
+}

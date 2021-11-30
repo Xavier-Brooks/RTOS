@@ -1,0 +1,9 @@
+#include "main.h"
+
+//pulses the in to initiate a reading
+void pulse(){
+	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_0);
+	int cnt = TIM2->CNT;
+	while(cnt < (TIM2->CNT + 10)){continue;}
+	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_0);
+}

@@ -1,0 +1,8 @@
+#include "main.h"
+
+void pulse(TIM_HandleTypeDef timer, uint16_t us){
+	__HAL_TIM_SET_COUNTER(&timer, 0);
+	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_0);
+	while( __HAL_TIM_GET_COUNTER(&timer) < us);
+	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_0);
+}

@@ -1,0 +1,9 @@
+#include "main.h"
+
+//pulses the in to initiate a reading
+void pulse(){
+	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_SET);
+	int cnt = TIM2->CNT;
+	while(cnt < (TIM2->CNT + 10)){continue;}
+	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_RESET);
+}

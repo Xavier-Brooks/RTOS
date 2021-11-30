@@ -1,4 +1,0 @@
-console.c:7:6:startup	24	static
-console.c:24:6:get_cmd	16	static
-console.c:39:6:parse	40	static
-console.c:50:6:assign	24	static

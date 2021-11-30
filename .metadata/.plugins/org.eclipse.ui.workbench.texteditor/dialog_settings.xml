@@ -8,6 +8,7 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="WAVE_BUFFER_SIZE"/>
 			<item value="sample"/>
 			<item value="samo"/>
 			<item value="uart"/>
@@ -22,9 +23,9 @@
 			<item value=":"/>
 			<item value="case "/>
 			<item value="&quot;"/>
-			<item value="UART4_BASE"/>
 		</list>
 		<list key="replacehistory">
+			<item value="sample"/>
 			<item value="dac_data"/>
 			<item value="adc_data"/>
 			<item value="loop_started"/>

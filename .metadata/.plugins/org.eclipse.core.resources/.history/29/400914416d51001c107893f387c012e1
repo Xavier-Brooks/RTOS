@@ -1,0 +1,12 @@
+#include "stm32l4xx_hal.h"
+#define MAX_SAMPLE_RATE 1000
+#define MED_SAMPLE_RATE 100
+#define MIN_SAMPLE_RATE 10
+#define SCC 64000000
+
+void dc2analog(double min, double max, int* dacmn, int* dacmx);
+void update_timer(TIM_HandleTypeDef* timer, DAC_HandleTypeDef* dac, int freq, int* sample);
+void update_data(uint32_t* buffer, char form, int min, int max);
+void populate_triangle_wave(uint32_t* buffer, int min, int max, int sample);
+void populate_rectangle_wave(uint32_t* buffer, int min, int max, int sample);
+void populate_sine_wave(uint32_t* buffer, int min, int max, int sample);

@@ -1,0 +1,1 @@
+void pulse(TIM_HandleTypeDef timer, uint16_t us);
